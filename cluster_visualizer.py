@@ -38,7 +38,6 @@ class ClusterVisualizer:
     def plot(self, output_dir=None):
         if output_dir is not None:
             self.output_dir = output_dir
-            print(f"def plot {self.output_dir}=")
         if self.dimension == 1:
             self._plot_1d()
         elif self.dimension == 2:
