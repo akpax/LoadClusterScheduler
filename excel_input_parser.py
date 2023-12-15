@@ -30,6 +30,6 @@ class ExcelInputParser:
         numbers = list(map(int, numbers))
         start_row = min(numbers)
         end_row = max(numbers)
-        skiprows = start_row
+        skiprows = start_row -1
         nrows = end_row - start_row + 1
         return skiprows, nrows

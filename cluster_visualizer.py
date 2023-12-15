@@ -1,5 +1,4 @@
 import matplotlib
-matplotlib.use('Agg')  # Use a non-interactive backend
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -37,6 +36,9 @@ class ClusterVisualizer:
             self.centers=centers
 
     def plot(self, output_dir=None):
+        if output_dir is not None:
+            self.output_dir = output_dir
+            print(f"def plot {self.output_dir}=")
         if self.dimension == 1:
             self._plot_1d()
         elif self.dimension == 2:
@@ -45,9 +47,6 @@ class ClusterVisualizer:
             self._plot_3d()
         else:
             raise ValueError("Data dimensionality not supported")
-        if output_dir is not None:
-            self.output_dir = output_dir
-            print(f"{self.output_dir}=")
 
     def _plot_1d(self):
         # plt.scatter(self.data[:, 0], [0] * len(self.data), c=self.labels)
@@ -58,19 +57,19 @@ class ClusterVisualizer:
             plt.scatter(self.centers, [0] * len(self.centers), c='red', marker='x', label='Cluster Centers')
             plt.legend()
         plt.title("1D Cluster Visualization")
-        # plt.xlabel(self.column_names[0])  no column name for pandas series
+        plt.xlabel(self.column_names[0]) 
         if self.output_dir is not None:
-            output_path = os.path.join(self.output_dir,f"1D Cluster Visualization.png" )
-            plt.savefig(output_path)
+            output_path = os.path.join(self.output_dir,"1D Cluster Visualization.png" )
+            print(f"{output_path}=")
+            plt.savefig(output_path, format="png")
         plt.show()
 
     def _plot_2d(self):
-        plt.ioff()  # Turn interactive mode off
+        # plt.ioff()  # Turn interactive mode off
         # Create a scatter plot for each cluster
         for label in np.unique(self.labels):
             cluster_data = self.data[self.labels == label]
             plt.scatter(cluster_data[:, 0], cluster_data[:, 1], label=f'Cluster {label}')
-
         # plt.scatter(self.data[:, 0], self.data[:, 1], c=self.labels)
         if self.centers is not None:
             plt.scatter(self.centers[:, 0], self.centers[:, 1], c='red', marker='x', label='Cluster Centers')
@@ -78,10 +77,11 @@ class ClusterVisualizer:
         plt.title("2D Cluster Visualization")
         plt.xlabel(self.column_names[0])
         plt.ylabel(self.column_names[1])
-        if self.output_dir is not None:
-            output_path = os.path.join(self.output_dir,"2D Cluster Visualization.png" )
-            print(f"{output_path=}")
-            plt.savefig(output_path)
+       #if self.output_dir is not None:
+        output_path = os.path.join(self.output_dir,"2D Cluster Visualization.png" )
+        print(f"{output_path}=")
+        plt.savefig(output_path)
+        plt.ion()
         plt.show()
 
     def _plot_3d(self):

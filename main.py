@@ -1,4 +1,3 @@
-
 from excel_input_parser import ExcelInputParser
 from cluster_visualizer import ClusterVisualizer
 import pandas as pd
@@ -20,15 +19,22 @@ usecols = parser.extract_usecols()
 skiprows, nrows = parser.extract_rows()
 
 df = pd.read_excel(file_path, sheet_name=sheet_name, usecols=usecols, skiprows=skiprows, nrows=nrows)
+print(df.tail())
 
-# format into training data
-X_1D = df.iloc[:,1]
-X_1D_train = df.iloc[:,1].to_numpy().reshape(-1,1)
-X_2D = df.iloc[:,1:3]
-X_3D = df.iloc[:,1:4]
-# print(X.head())
 
-X=X_2D
+def format_data_for_training(X):
+    """
+    Removes label column of dataframe to form dataset
+    """
+    if len(X.shape) == 1:
+        # keep type as pandas df
+        return X.iloc[:,[1]]
+    else:
+        # If 2D or 3D, return as is
+        return X.iloc[:,1:]
+    
+X = format_data_for_training(df)
+
 print(X.head())
 # pick model based on wether user specified cluster quantity
 if not user_cluster_qty:
@@ -57,10 +63,8 @@ if not os.path.exists(output_folder_path):
 csv_path = os.path.join(output_folder_path, "user_input&results.csv")
 df.to_csv(csv_path, index=False)
 
-
+# plot results
 cluster_visualizer = ClusterVisualizer()
-print(labels)
 cluster_visualizer.set_data(data=X, labels=labels, centers=centers)
-print(f"{output_folder_path=}")
 cluster_visualizer.plot(output_folder_path)
 
