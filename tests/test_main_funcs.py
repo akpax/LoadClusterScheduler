@@ -7,7 +7,7 @@ from pathlib import Path
 parent_dir = Path(__file__).parent.parent.resolve()
 sys.path.append(str(parent_dir))
 print(__file__)
-from main import format_data_for_training
+from main import format_data_for_training, append_date_and_time
 
 
 file_path = "test_files/Pier Loads.xlsx"
@@ -26,4 +26,9 @@ def test_3D_and_up_input_case():
     output = format_data_for_training(df_4D)
     assert len(output.columns) == 3
     assert isinstance(output, pd.DataFrame)
+
+def test_append_date_and_time():
+    assert type(append_date_and_time("cluster_report")) == str
+
+
 
