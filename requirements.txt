@@ -4,3 +4,4 @@ scikit-learn
 matplotlib
 matplotlib_inline
 pytest
+argparse

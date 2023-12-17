@@ -7,7 +7,7 @@ from datetime import datetime
 import matplotlib as plt 
 import tkinter as tk
 from argparse import ArgumentParser
-from icecream import ic
+
 
 
 # arg_parser = ArgumentParser()
