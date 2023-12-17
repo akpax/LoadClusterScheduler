@@ -3,3 +3,4 @@ openpyxl
 scikit-learn
 matplotlib
 matplotlib_inline
+pytest

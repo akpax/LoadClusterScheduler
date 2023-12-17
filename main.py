@@ -6,7 +6,23 @@ import os
 from datetime import datetime
 import matplotlib as plt 
 import tkinter as tk
+from argparse import ArgumentParser
+from icecream import ic
 
+
+# arg_parser = ArgumentParser()
+
+# arg_parser.add_argument("xlsx_path", help="Path to .xlsx file to be analyzed", type=str)
+# arg_parser.add_argument("cell_range", help="Cell range of data to be analyzed formated as 'sheetname!A3:D10'", type=str)
+# arg_parser.add_argument("--cluster_qty", help="use this argument to enter desired number of clusters", type=int)
+
+# args = arg_parser.parse_args()
+# xlsx_path = args.xlsx_path
+# cell_range = args.cell_range
+# cluster_qty = args.cluster_qty
+# ic(xlsx_path)
+# ic(cell_range)
+# ic(cluster_qty)
 # ###################################### tkinter entry for demo #################################################
 # window = tk.Tk()
 # tk.Label(window, text="Excel Path").grid(row=0)
@@ -50,7 +66,7 @@ def format_data_for_training(X):
 
 def append_date_and_time(prefix):
     date = datetime.now()
-    formated_date = date.strftime("%d-%m-%Y_%H:%M:%S")
+    formated_date = date.strftime("%m-%d-%Y_%H:%M:%S")
     return f"{prefix}_{formated_date}"
 
 # create folder for report using current date and time
@@ -73,7 +89,10 @@ if __name__ == "__main__":
     sheet_name = parser.sheet_name
     usecols = parser.extract_usecols()
     skiprows, nrows = parser.extract_rows()
-
+    ic(skiprows)
+    ic(nrows)
+    ic(usecols)
+    ic(sheet_name)
     df = pd.read_excel(file_path, sheet_name=sheet_name, usecols=usecols, skiprows=skiprows, nrows=nrows)
     print(df.tail())
 
