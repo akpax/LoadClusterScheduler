@@ -1,0 +1,41 @@
+name: Build and Release
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+
+      - name: Build Executable
+        run: pyinstaller --onefile main.py --name=load_cluster
+
+      - name: Rename Executable (Windows)
+        if: startsWith(matrix.os, 'windows')
+        run: |
+          Move-Item dist\load_cluster.exe dist\load_cluster_windows.exe
+
+      - name: Rename Executable (macOS)
+        if: startsWith(matrix.os, 'macos')
+        run: mv dist/load_cluster dist/load_cluster_macos
+
+      - name: Upload Executable as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: load_cluster${{ matrix.os }}
+          path: dist/
