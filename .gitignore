@@ -4,4 +4,4 @@ __pycache__
 venv
 test_read_xlsx.ipynb
 build
-dist/main/_internal
+dist/main
