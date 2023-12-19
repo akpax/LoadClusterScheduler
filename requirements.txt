@@ -6,6 +6,4 @@ matplotlib_inline
 pytest
 argparse
 pyinstaller
-dist/main/_internal
-build
 icecream
