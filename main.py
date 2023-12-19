@@ -10,19 +10,6 @@ from argparse import ArgumentParser
 from icecream import ic
 
 
-
-arg_parser = ArgumentParser()
-
-arg_parser.add_argument("xlsx_path", help="Path to .xlsx file to be analyzed", type=str)
-arg_parser.add_argument("cell_range", help="Cell range of data to be analyzed formated as 'sheetname!A3:D10'", type=str)
-arg_parser.add_argument("--cluster_qty", help="use this argument to enter desired number of clusters", type=int)
-
-args = arg_parser.parse_args()
-xlsx_path = args.xlsx_path
-cell_range = args.cell_range
-cluster_qty = args.cluster_qty
-
-
 ###################################### Inputs #################################################
 # xlsx_path = "/Users/austinpaxton/Documents/ML_projects/LoadClusterScheduler/test_files/Pier Loads.xlsx"
 # cell_range = "Pier Load Summary!A29:C50"
@@ -57,7 +44,21 @@ def create_output_folder_path(name):
     output_folder_path = os.path.join(home_directory,"Desktop",folder_name)
     return output_folder_path
 
+
+
 if __name__ == "__main__":
+    # use arg_parser to recieve command line args
+    arg_parser = ArgumentParser()
+
+    arg_parser.add_argument("xlsx_path", help="Path to .xlsx file to be analyzed", type=str)
+    arg_parser.add_argument("cell_range", help="Cell range of data to be analyzed formated as 'sheetname!A3:D10'", type=str)
+    arg_parser.add_argument("--cluster_qty", help="use this argument to enter desired number of clusters", type=int)
+
+    args = arg_parser.parse_args()
+    xlsx_path = args.xlsx_path
+    cell_range = args.cell_range
+    cluster_qty = args.cluster_qty
+
     print("__________________________User Inputs Recieved________________________")
     print(f"{xlsx_path=}")
     print(f"{cell_range=}")
