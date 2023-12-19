@@ -3,3 +3,5 @@ __pycache__
 .vscode
 venv
 test_read_xlsx.ipynb
+build
+dist/main/_internal

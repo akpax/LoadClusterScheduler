@@ -59,7 +59,6 @@ class ClusterVisualizer:
         plt.xlabel(self.column_names[0]) 
         if self.output_dir is not None:
             output_path = os.path.join(self.output_dir,"1D Cluster Visualization.png" )
-            print(f"{output_path}=")
             plt.savefig(output_path, format="png")
         plt.show()
 
@@ -78,7 +77,6 @@ class ClusterVisualizer:
         plt.ylabel(self.column_names[1])
        #if self.output_dir is not None:
         output_path = os.path.join(self.output_dir,"2D Cluster Visualization.png" )
-        print(f"{output_path}=")
         plt.savefig(output_path)
         plt.ion()
         plt.show()
