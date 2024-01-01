@@ -7,8 +7,10 @@
 ## Summary
 This is a command line tool that uses the KMeans and MeanShift from sklearn to cluster data in a specified cell range in an xlsx document.  It outputs a timestamped "cluster report" folder to the desktop containing a .csv file with the user input and labels and a visualization plot if the number of features is less than 3. 
 
+
 ## Set Up
 The source code can be downloaded and used with an interpreter. However, executables are provided for those wanting to run the application without installing python and an IDE.
+
 
 ## Usage
 To run the application from the command line, enter the path to the downloaded executable and the required arguments (xlsx file path and cell range). Note cell range must be imputed in typical excel fashion (“sheet_name:A1:C30” or “sheet_name!A1:C20,H,L” for multiple columns). 
@@ -23,6 +25,7 @@ Additionally, the application expects the user to include an ID column as the fi
 
 ## Simplifying Command Line Usage with Aliases and Batch Files
 To make running LoadClusterScheduler more convenient from the command line, you can create shortcuts. In Linux, this is done by setting up an 'alias', and in Windows, by creating a '.bat' (batch) file. These shortcuts allow you to run the application without typing the full path to the executable every time.
+
 
 ### In Linux:
 An alias is a shorthand command that references another command. It's a way to customize your command line experience by creating simple, memorable commands to execute longer or more complex command lines. Once an alias is set up, you only need to type the alias name instead of the full command.
@@ -48,6 +51,7 @@ source ~/.bashrc
 5. Now we can run the executable using 
 
 ``` cluster <path/to/file> <sheet_range> [cluster_quantity] ```
+
 
 ### In Windows:
 A batch file (with a .bat extension) is a script file in DOS, Windows, and OS/2 operating systems. It consists of a series of commands to be executed by the command-line interpreter. Creating a .bat file for LoadClusterScheduler will allow you to start the application by typing a short command instead of the full path to the executable. 
@@ -75,6 +79,7 @@ This tool was initially developed to aid in constructing schedules in my daily w
 * Customer Segmentation for Marketing: Identifying distinct customer groups for targeted marketing strategies.
 * Real Estate Market Analysis: Clustering properties based on attributes like size, price, and amenities.
 * Sports Analytics: Grouping player performances based on key metrics.
+
 
 ## Why This Tool Helps Me as a Structural Engineer
 Scenario: Imagine a building with 100 columns, each subjected to various compressive and possibly lateral forces. Some columns bear significant forces and thus need to be large, whereas others endure smaller forces and can be substantially smaller. Selecting appropriate column sizes for a project is essential, ensuring each column is robust enough to handle the applied load.
