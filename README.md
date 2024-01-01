@@ -30,12 +30,22 @@ An alias is a shorthand command that references another command. It's a way to c
 
 
 1. Open .bashrc or .zshrc file in terminal
-``` nano .zshrc ```
+```
+nano .zshrc
+ ```
+
 2. Add alias
-``` alias cluster=’absolute/path/to/executable' ```
+```
+ alias cluster=’absolute/path/to/executable'
+ ```
+
 3. Save and exit editor
+
 4. Restart terminal
-``` source ~/.bashrc ```
+```
+source ~/.bashrc
+ ```
+
 5. Now we can run the executable using 
 
 ``` cluster <path/to/file> <sheet_range> [cluster_quantity] ```
@@ -51,6 +61,7 @@ set EXECUTABLE_PATH=C:\path\to\your_executable.exe
 REM Running the executable
 "%EXECUTABLE_PATH%" %*
 ```
+
 2. Name .bat file cluster.bat for convenience and save to a directory that is included in the system’s PATH 
 
 3. Now we can run the executable using 
