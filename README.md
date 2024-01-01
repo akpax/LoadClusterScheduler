@@ -19,6 +19,7 @@ To run the application from the command line, enter the path to the downloaded e
 ``` path/to/executable <path/to/xlsx_file> <cell_range> ```
 
 Additionally, the application expects the user to include an ID column as the first column in the cell range. This column will be dropped for analysis but is utilized in the output report for clarity. In the image below, only the features to the right of ID will be clustered. 
+![Screenshot 2024-01-01 at 1 00 41 PM](https://github.com/akpax/LoadClusterScheduler/assets/78048703/d36f1dc4-03b1-45d9-b0a4-2453fd431958)
 
 
 
