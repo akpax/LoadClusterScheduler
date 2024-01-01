@@ -1,6 +1,7 @@
 # LoadClusterScheduler
 
-![Jan-01-2024 13-21-24](https://github.com/akpax/LoadClusterScheduler/assets/78048703/0f0ad823-2f14-4914-856e-56a7393a0ae5)
+![Jan-01-2024 13-28-44](https://github.com/akpax/LoadClusterScheduler/assets/78048703/49dd906f-96cf-4455-959e-a0c79fc24c7c)
+
 
 
 ## Summary
