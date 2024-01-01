@@ -7,13 +7,6 @@
 ## Summary
 This is a command line tool that uses the KMeans and MeanShift from sklearn to cluster data in a specified cell range in an xlsx document.  It outputs a timestamped "cluster report" folder to the desktop containing a .csv file with the user input and labels and a visualization plot if the number of features is less than 3. 
 
-## Use Case
-This tool was meant to aid in developing construction schedules in my day-to-day workflow as a structural engineer. 
-
-Scenario: Imagine you have 100 columns in a building under various compressive and possibly lateral forces. Some columns have a lot of force on them and need to be large, while others have smaller forces and can be significantly smaller. We need to choose column sizes for the project to give to a contractor, but they must be large enough to withstand the load applied to them. One extreme would be to take the largest load, size a very large column, and specify that for all the columns in the building. However, this is inefficient because most columns do not need to be that large and can be made smaller to save material and money. On the other hand, specifying different column sizes for each load, while efficient material-wise, is very tedious for a contractor to build and error-prone. Enter the LoadClusterScheduler tool: This tool groups columns with similar loads into clusters, allowing for efficient material usage while not providing too many options.
-
-
-
 ## Set Up
 The source code can be downloaded and used with an interpreter. However, executables are provided for those wanting to run the application without installing python and an IDE.
 
@@ -75,5 +68,15 @@ REM Running the executable
 ``` cluster.bat <path/to/file> <sheet_range> [cluster_quantity] ```
 
 
+## Use Case
+This tool was initially developed to aid in constructing schedules in my daily workflow as a structural engineer. However, it is versatile and not industry-specific, with additional possible use cases including:
 
+* Retail Inventory Management: Clustering products based on factors such as sales volume, seasonality, and customer preferences.
+* Customer Segmentation for Marketing: Identifying distinct customer groups for targeted marketing strategies.
+* Real Estate Market Analysis: Clustering properties based on attributes like size, price, and amenities.
+* Sports Analytics: Grouping player performances based on key metrics.
 
+## Why This Tool Helps Me as a Structural Engineer
+Scenario: Imagine a building with 100 columns, each subjected to various compressive and possibly lateral forces. Some columns bear significant forces and thus need to be large, whereas others endure smaller forces and can be substantially smaller. Selecting appropriate column sizes for a project is essential, ensuring each column is robust enough to handle the applied load.
+
+One approach is to size all columns in the building to withstand the maximum load, which results in uniformly large columns. While this method ensures structural integrity, it is materially inefficient and costly. Conversely, custom-sizing each column for its specific load, though materially efficient, leads to an overly complicated design. This complexity is not only tedious but also prone to errors when built by contractors. The LoadClusterScheduler tool addresses this dilemma by grouping columns with similar loads into clusters. This approach strikes a balance between material efficiency and practicality, offering a manageable number of options. It enables engineers to concentrate on core engineering tasks, streamlining the complexity of column grouping into a user-friendly command-line tool.
