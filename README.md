@@ -29,36 +29,34 @@ To make running LoadClusterScheduler more convenient from the command line, you 
 An alias is a shorthand command that references another command. It's a way to customize your command line experience by creating simple, memorable commands to execute longer or more complex command lines. Once an alias is set up, you only need to type the alias name instead of the full command.
 
 
-Open .bashrc or .zshrc file in terminal
+1. Open .bashrc or .zshrc file in terminal
 ``` nano .zshrc ```
-Add alias
+2. Add alias
 ``` alias cluster=’absolute/path/to/executable' ```
-Save and exit editor
-Restart terminal
+3. Save and exit editor
+4. Restart terminal
 ``` source ~/.bashrc ```
-Now we can run the executable using 
+5. Now we can run the executable using 
 
 ``` cluster <path/to/file> <sheet_range> [cluster_quantity] ```
 
 ### In Windows:
 A batch file (with a .bat extension) is a script file in DOS, Windows, and OS/2 operating systems. It consists of a series of commands to be executed by the command-line interpreter. Creating a .bat file for LoadClusterScheduler will allow you to start the application by typing a short command instead of the full path to the executable. 
-Create a .bat file with the following information:
-```@echo off
+1. Create a .bat file with the following information:
+```
+@echo off
 REM Path to your executable
 set EXECUTABLE_PATH=C:\path\to\your_executable.exe
 
 REM Running the executable
-"%EXECUTABLE_PATH%" %* ```
-Name .bat file cluster.bat for convenience and save to a directory that is included in the system’s PATH 
+"%EXECUTABLE_PATH%" %*
+```
+2. Name .bat file cluster.bat for convenience and save to a directory that is included in the system’s PATH 
 
-Now we can run the executable using 
-
-``` cluster.bat <path/to/file> <sheet_range> [cluster_quantity] ```
-
-
-
-Now we can run the executable using 
+3. Now we can run the executable using 
 
 ``` cluster.bat <path/to/file> <sheet_range> [cluster_quantity] ```
+
+
 
 
