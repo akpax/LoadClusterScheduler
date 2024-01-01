@@ -1,5 +1,8 @@
 # LoadClusterScheduler
 
+![Jan-01-2024 13-21-24](https://github.com/akpax/LoadClusterScheduler/assets/78048703/0f0ad823-2f14-4914-856e-56a7393a0ae5)
+
+
 ## Summary
 This is a command line tool that uses the KMeans and MeanShift from sklearn to cluster data in a specified cell range in an xlsx document.  It outputs a timestamped "cluster report" folder to the desktop containing a .csv file with the user input and labels and a visualization plot if the number of features is less than 3. 
 
